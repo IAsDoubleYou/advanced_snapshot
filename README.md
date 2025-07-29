@@ -1,46 +1,52 @@
-<img src="https://www.google.com/search?q=https://raw.githubusercontent.com/IAsDoubleYou/advanced_snapshot_fork/refs/heads/main/images/icon.png" height="60"> Advanced Snapshot & Video for Home Assistant
-Advanced Snapshot is a custom integration for Home Assistant that allows you to automatically capture snapshots from cameras and customize them with personalized texts and crop options. This integration provides additional flexibility and customization for camera images used in Home Assistant.
+# <img src="https://raw.githubusercontent.com/IAsDoubleYou/advanced_snapshot_fork/main/images/icon.png" height="60"> Advanced Snapshot & Video for Home Assistant
 
-<img src="https://www.google.com/search?q=https://github.com/IAsDoubleYou/advanced_snapshot_fork/blob/main/images/original.jpg" alt="Original Snapshot" width="500">
+**Advanced Snapshot** is a custom integration for [Home Assistant](https://www.home-assistant.io/) that allows you to automatically capture snapshots from cameras and customize them with personalized texts and crop options. This integration provides additional flexibility and customization for camera images used in Home Assistant.
 
-<img src="https://www.google.com/search?q=https://github.com/IAsDoubleYou/advanced_snapshot_fork/blob/main/images/advancedsnapshot.jpg" alt="Advanced Snapshot" width="500">
+| ![Original Snapshot](https://github.com/IAsDoubleYou/advanced_snapshot_fork/blob/main/images/original.jpg?raw=true) | ![Advanced Snapshot](https://github.com/IAsDoubleYou/advanced_snapshot_fork/blob/main/images/advancedsnapshot.jpg?raw=true) |
+|-----------------------------|-----------------------------|
+| Original Snapshot           | Advanced Snapshot           |
 
-Original Snapshot
+## 🚀 Features
 
-Advanced Snapshot
+* **Capture snapshots** from any camera in your Home Assistant setup.
 
-🚀 Features
-Capture snapshots from any camera in your Home Assistant setup.
+* **Add custom text** to the snapshots, with options for left, center, and right-aligned text.
 
-Add custom text to the snapshots, with options for left, center, and right-aligned text.
+* **Add a customizable bar** to the snapshot (position, color, height, etc.).
 
-Add a customizable bar to the snapshot (position, color, height, etc.).
+* **Crop images** before saving them.
 
-Crop images before saving them.
+* **Save snapshots** to a specified path and optionally create backups.
 
-Save snapshots to a specified path and optionally create backups.
+* **File Rotation:** Automatically manage a series of snapshots, keeping the newest and rotating out the oldest based on a base filename and maximum count.
 
-File Rotation: Automatically manage a series of snapshots, keeping the newest and rotating out the oldest based on a base filename and maximum count.
+## 🔧 Installation - Using HACS
 
-🔧 Installation - Using HACS
 This integration is NO official HACS Integration right now.
 
 Open HACS then install the "advanced_snapshot" integration or use the link below.
 
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=IAsDoubleYou&repository=advanced_snapshot_fork&category=integration)
+
 If you use this method, your component will always update to the latest version.
 
-Configuration
+### Configuration
+
 Go to Settings → Devices and Services and click on “+ ADD INTEGRATION”. Then search for “advanced_snapshot”.
 
-🔧 Usage
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=advanced_snapshot)
+
+## 🔧 Usage
+
 After installation, you can use the advanced_snapshot service to capture snapshots or record videos from your camera entities. There are two available actions:
 
-take_snapshot: Captures a snapshot from the camera.
+`take_snapshot`: Captures a snapshot from the camera.
 
-record_video: Records a video using the camera.
+`record_video`: Records a video using the camera.
 
 You can call the desired action using the following YAML:
 
+```yaml
 service: advanced_snapshot.take_snapshot
 data:
   camera_entity_id: camera.your_camera_front_door
@@ -139,4 +145,4 @@ If you find this integration useful and want to support its development, feel fr
 Your support is greatly appreciated!
 
 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](
