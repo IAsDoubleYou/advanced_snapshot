@@ -17,6 +17,24 @@ take_snapshot:
       example: "{{ now().strftime('%y%m%d')}}/{{ now().strftime('%H%M%S')}}_snapshot.jpg"
       selector:
         text:
+    # Nieuwe opties voor bestandsrotatie
+    base_file_name:
+      name: "Base Filename"
+      description: "The base filename for the rotating snapshots (i.e. 'doorbell_cam')."
+      required: false
+      example: "doorbell_cam"
+      selector:
+        text:
+    max_snapshots:
+      name: "Maximum Number of Snapshots"
+      description: "The maximum number of snapshots to preserve in the rotation series (0 for no rotation)."
+      required: false
+      default: 0
+      example: 3
+      selector:
+        number:
+          min: 0
+          mode: box
     rotate_angle: 
       example: 10
       selector:
@@ -102,11 +120,11 @@ record_video:
         entity:
           domain: camera
     duration:
-          example: 40
-          required: true    
-          default: 40
-          selector:
-            text:
+      example: 40
+      required: true    
+      default: 40
+      selector:
+        text:
     file_path:
       required: true
       example: video.mp4
@@ -192,6 +210,3 @@ record_video:
               options:
                 - "top"
                 - "bottom"
-                
-                
-                
