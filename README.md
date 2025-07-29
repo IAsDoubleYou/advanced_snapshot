@@ -1,8 +1,8 @@
-# <img src="https://raw.githubusercontent.com/IAsDoubleYou/advanced_snapshot_fork/main/images/icon.png" height="60"> Advanced Snapshot & Video for Home Assistant
+# <img src="https://raw.githubusercontent.com/IAsDoubleYou/advanced_snapshot/main/images/icon.png" height="60"> Advanced Snapshot & Video for Home Assistant
 
 **Advanced Snapshot** is a custom integration for [Home Assistant](https://www.home-assistant.io/) that allows you to automatically capture snapshots from cameras and customize them with personalized texts and crop options. This integration provides additional flexibility and customization for camera images used in Home Assistant.
 
-| ![Original Snapshot](https://github.com/IAsDoubleYou/advanced_snapshot_fork/blob/main/images/original.jpg?raw=true) | ![Advanced Snapshot](https://github.com/IAsDoubleYou/advanced_snapshot_fork/blob/main/images/advancedsnapshot.jpg?raw=true) |
+| ![Original Snapshot](https://github.com/IAsDoubleYou/advanced_snapshot/blob/main/images/original.jpg?raw=true) | ![Advanced Snapshot](https://github.com/IAsDoubleYou/advanced_snapshot/blob/main/images/advancedsnapshot.jpg?raw=true) |
 |-----------------------------|-----------------------------|
 | Original Snapshot           | Advanced Snapshot           |
 
@@ -26,7 +26,7 @@ This integration is NO official HACS Integration right now.
 
 Open HACS then install the "advanced_snapshot" integration or use the link below.
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=IAsDoubleYou&repository=advanced_snapshot_fork&category=integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=IAsDoubleYou&repository=advanced_snapshot&category=integration)
 
 If you use this method, your component will always update to the latest version.
 
