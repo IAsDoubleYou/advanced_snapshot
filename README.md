@@ -58,8 +58,8 @@ data:
   camera_entity_id: camera.your_camera_front_door
   file_path: frontdoor.jpg
   file_path_backup: "{{ now().strftime('%y%m%d')}}/{{now().strftime('%H%M%S')}}_frontdoor.jpg"
-  base_file_name: "voordeur_laatste" # Nieuw: Basis bestandsnaam voor rotatie
-  max_snapshots: 5                   # Nieuw: Maximaal 5 snapshots bewaren
+  base_file_name: "frontdoor_latest" # Base filename used for rotation
+  max_snapshots: 5                   # Keep at most 5 rotated snapshots
   crop: [100, 100, 400, 300]  # (x, y, width, height)
   crop_aspect_ratio: "16:9"
   rotate_angle: 90
@@ -73,15 +73,18 @@ data:
   setting_bar_height: 7%
   setting_bar_color: "white"
   setting_bar_position: "bottom"
+```
+
 ```yaml
 service: advanced_snapshot.record_video
 data:
   camera_entity_id: camera.your_camera_front_door
   file_path: frontdoor.mp4
-  file_path_backup: {{ now().strftime('%y%m%d')}}/{{now().strftime('%H%M%S')}}_frontdoor.mp4
+  file_path_backup: "{{ now().strftime('%y%m%d')}}/{{now().strftime('%H%M%S')}}_frontdoor.mp4"
   duration: 40
   crop: [100, 100, 400, 300]  # (x, y, width, height)
   crop_aspect_ratio: "16:9"
+```
 
 Parameters
 camera_entity_id (Required): The entity ID of the camera you want to capture a snapshot from.
@@ -117,6 +120,8 @@ setting_bar_color (Optional): Color of the bar (default is white). You can use c
 setting_bar_position (Optional): Position of the bar (top or bottom).
 
 Response
+
+```
 success: true
 file_path: /config/www/push/snapshot.jpg
 backup_path: /config/www/backupsnapshots/250216_220954_snapshot.jpg
@@ -127,6 +132,7 @@ final_resolution:
   - 1066
   - 640
 error: null
+```
 
 💡 Troubleshooting
 If the service does not work as expected, please ensure the following:
