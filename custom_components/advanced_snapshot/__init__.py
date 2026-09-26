@@ -19,6 +19,7 @@ from functools import partial
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 from .const import DOMAIN
+from .rotation import async_rotate_snapshots
 
     
 _LOGGER = logging.getLogger(__name__)
@@ -159,47 +160,9 @@ async def handle_take_snapshot(hass: HomeAssistant, call: ServiceCall) -> Servic
         # --- Start File Rotation Logic ---
         if base_file_name and max_snapshots > 0:
             _LOGGER.info(f"Applying file rotation for base: '{base_file_name}', max: {max_snapshots}")
-            
-            # Determine the directory and extension from the original file_path
-            target_dir = os.path.dirname(file_path)
-            # Use the extension from the original file_path for rotated files
-            _, ext = os.path.splitext(file_path) 
-            
-            # Construct the full path for the base file (the newest snapshot)
-            base_full_path = os.path.join(target_dir, f"{base_file_name}{ext}")
-
-            # 1. Delete the oldest snapshot if max_snapshots is reached
-            oldest_file_to_delete = os.path.join(target_dir, f"{base_file_name}-{max_snapshots}{ext}")
-            if await hass.async_add_executor_job(os.path.exists, oldest_file_to_delete):
-                try:
-                    await hass.async_add_executor_job(os.remove, oldest_file_to_delete)
-                    _LOGGER.debug(f"Deleted oldest snapshot: {oldest_file_to_delete}")
-                except OSError as e:
-                    _LOGGER.warning(f"Could not delete oldest snapshot {oldest_file_to_delete}: {e}")
-
-            # 2. Shift existing files (e.g., base-1.jpg becomes base-2.jpg, etc.)
-            for i in range(max_snapshots - 1, 0, -1):
-                old_rotated_path = os.path.join(target_dir, f"{base_file_name}-{i}{ext}")
-                new_rotated_path = os.path.join(target_dir, f"{base_file_name}-{i+1}{ext}")
-                if await hass.async_add_executor_job(os.path.exists, old_rotated_path):
-                    try:
-                        await hass.async_add_executor_job(os.rename, old_rotated_path, new_rotated_path)
-                        _LOGGER.debug(f"Renamed {old_rotated_path} to {new_rotated_path}")
-                    except OSError as e:
-                        _LOGGER.warning(f"Could not rename {old_rotated_path} to {new_rotated_path}: {e}")
-
-            # 3. Rename the current 'base_file_name.ext' to 'base_file_name-1.ext'
-            # This prepares the slot for the new snapshot
-            if await hass.async_add_executor_job(os.path.exists, base_full_path):
-                first_rotated_path = os.path.join(target_dir, f"{base_file_name}-1{ext}")
-                try:
-                    await hass.async_add_executor_job(os.rename, base_full_path, first_rotated_path)
-                    _LOGGER.debug(f"Renamed {base_full_path} to {first_rotated_path}")
-                except OSError as e:
-                    _LOGGER.warning(f"Could not rename {base_full_path} to {first_rotated_path}: {e}")
-            
-            # Update the file_path to be the base_full_path for the new snapshot
-            file_path = base_full_path
+            file_path = await async_rotate_snapshots(
+                hass, file_path, base_file_name, max_snapshots
+            )
             event_data["file_path"] = file_path # Update event_data with the new target path
 
         # --- End File Rotation Logic ---

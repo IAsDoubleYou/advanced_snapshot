@@ -139,5 +139,12 @@ If you find a bug or would like to contribute new features, please fork the repo
 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## About this fork
+This fork exists for one reason: **automatic snapshot rotation** (`base_file_name` + `max_snapshots` on `take_snapshot`), so a camera that is snapshotted continuously (for example, to feed an AI image analysis pipeline) does not accumulate an unlimited number of files on disk. That feature does not exist upstream.
+
+This fork is maintained for personal use; others are welcome to use it as-is, but it is not intended to become a fully maintained, HA-guideline-compliant alternative to the original. It is not kept in sync with upstream on a schedule — fixes are pulled in individually when they matter (see the changelog in the commit history), not through routine merging.
+
+A pull request upstreaming the rotation feature is a possibility worth reconsidering later, but has not been pursued: there is no track record of externally-submitted PRs on the original repository to gauge how that would go, and its own open feature requests tend to sit unaddressed for months. For now, keeping this as an independent fork is the lower-effort, working option.
+
 ## Credits
 This is a fork of [Phil7989/advanced_snapshot](https://github.com/Phil7989/advanced_snapshot) by Philipp Arnold, who created and continues to maintain the original integration. This fork is maintained independently and has diverged with its own set of changes (including automatic snapshot rotation), so please report issues found here against this repository rather than the original.
