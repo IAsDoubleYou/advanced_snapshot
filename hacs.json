@@ -1,6 +1,8 @@
 {
   "name": "Advanced Snapshot & Video",
   "country": "DE",
-  "render_readme": true
+  "render_readme": true,
+  "zip_release": true,
+  "filename": "homeassistant-advanced_snapshot.zip"
 }
 

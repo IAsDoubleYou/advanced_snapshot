@@ -1,5 +1,11 @@
 # <img src="https://raw.githubusercontent.com/IAsDoubleYou/advanced_snapshot/main/images/icon.png" height="60"> Advanced Snapshot & Video for Home Assistant
 
+[![HACS Custom][hacs_shield]][hacs]
+[![GitHub Latest Release][releases_shield]][latest_release]
+[![GitHub Downloads (latest Release)][downloads_latest_shield]][latest_release]
+[![GitHub All Releases][downloads_total_shield]][releases]
+[![Tests][tests_shield]][tests]
+
 **Advanced Snapshot** is a custom integration for [Home Assistant](https://www.home-assistant.io/) that allows you to automatically capture snapshots from cameras and customize them with personalized texts and crop options. This integration provides additional flexibility and customization for camera images used in Home Assistant.
 
 | ![Original Snapshot](https://github.com/IAsDoubleYou/advanced_snapshot/blob/main/images/original.jpg?raw=true) | ![Advanced Snapshot](https://github.com/IAsDoubleYou/advanced_snapshot/blob/main/images/advancedsnapshot.jpg?raw=true) |
@@ -148,3 +154,13 @@ A pull request upstreaming the rotation feature is a possibility worth reconside
 
 ## Credits
 This is a fork of [Phil7989/advanced_snapshot](https://github.com/Phil7989/advanced_snapshot) by Philipp Arnold, who created and continues to maintain the original integration. This fork is maintained independently and has diverged with its own set of changes (including automatic snapshot rotation), so please report issues found here against this repository rather than the original.
+
+[hacs_shield]: https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square
+[hacs]: https://github.com/hacs/integration
+[latest_release]: https://github.com/IAsDoubleYou/advanced_snapshot/releases/latest
+[releases_shield]: https://img.shields.io/github/v/release/IAsDoubleYou/advanced_snapshot?style=flat-square
+[releases]: https://github.com/IAsDoubleYou/advanced_snapshot/releases/
+[downloads_total_shield]: https://img.shields.io/github/downloads/IAsDoubleYou/advanced_snapshot/total?style=flat-square
+[downloads_latest_shield]: https://img.shields.io/github/downloads/IAsDoubleYou/advanced_snapshot/latest/total?style=flat-square
+[tests_shield]: https://img.shields.io/github/actions/workflow/status/IAsDoubleYou/advanced_snapshot/tests.yaml?branch=main&label=tests&style=flat-square
+[tests]: https://github.com/IAsDoubleYou/advanced_snapshot/actions/workflows/tests.yaml
