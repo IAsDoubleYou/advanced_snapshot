@@ -136,13 +136,8 @@ If you're receiving errors with the text bar, verify the font file path and font
 Contributing
 If you find a bug or would like to contribute new features, please fork the repository and submit a pull request. Contributions are always welcome!
 
-🙏 Donate
-If you find this integration useful and want to support its development, feel free to make a donation:
-
-
-<a href='https://www.buymeacoffee.com/56xsp4m6sxy'><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="BuyMeACoffee" width="80" style="width:80px; height:auto;"></a>
-
-Your support is greatly appreciated!
-
 License
-This project is licensed under the MIT License - see the [LICENSE](
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Credits
+This is a fork of [Phil7989/advanced_snapshot](https://github.com/Phil7989/advanced_snapshot) by Philipp Arnold, who created and continues to maintain the original integration. This fork is maintained independently and has diverged with its own set of changes (including automatic snapshot rotation), so please report issues found here against this repository rather than the original.

@@ -1,5 +1,6 @@
 import os
 import logging
+import shutil
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 import aiofiles
@@ -510,9 +511,13 @@ async def handle_record_video(hass: HomeAssistant, call: ServiceCall) -> Service
 
     if file_path_backup:
         try:
-            os.makedirs(os.path.dirname(file_path_backup), exist_ok=True)
-            # Use async_add_executor_job for file copy operation
-            await hass.async_add_executor_job(lambda: os.system(f"cp '{file_path}' '{file_path_backup}'"))
+            await hass.async_add_executor_job(
+                partial(os.makedirs, os.path.dirname(file_path_backup), exist_ok=True)
+            )
+            # shutil.copy2 avoids shelling out through os.system, which was
+            # vulnerable to shell injection when a path contained shell
+            # metacharacters.
+            await hass.async_add_executor_job(shutil.copy2, file_path, file_path_backup)
             _LOGGER.info(f"Backup video saved at {file_path_backup}")
         except Exception as e:
             _LOGGER.error(f"Backup failed: {str(e)}")
