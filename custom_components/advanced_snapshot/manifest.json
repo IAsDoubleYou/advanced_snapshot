@@ -9,5 +9,5 @@
   "issue_tracker": "https://github.com/IAsDoubleYou/advanced_snapshot/issues",
   "requirements": ["Pillow", "ffmpeg-python"],
   "single_config_entry": true,
-  "version": "2026.9.26"
+  "version": "2026.10.5"
 }

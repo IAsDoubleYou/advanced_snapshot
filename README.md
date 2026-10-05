@@ -28,6 +28,8 @@
 
 ## 🔧 Installation - Using HACS
 
+Requires Home Assistant 2026.3.0 or newer (Python 3.14), declared as the minimum in `hacs.json`.
+
 This integration is NO official HACS Integration right now.
 
 Open HACS then install the "advanced_snapshot" integration or use the link below.
